@@ -3,7 +3,7 @@ import globals from "globals";
 export default [
   js.configs.recommended,
   {
-    langageOptions: {
+    languageOptions: {
       globals: globals.node,
     },
   },
