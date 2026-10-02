@@ -1,2 +1,10 @@
 import js from "@eslint/js";
-export default [js.configs.recommended];
+import globals from "globals";
+export default [
+  js.configs.recommended,
+  {
+    langageOptions: {
+      globals: globals.node,
+    },
+  },
+];
