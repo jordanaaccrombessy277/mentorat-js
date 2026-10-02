@@ -38,37 +38,40 @@ const membresDePlusDe25Ans = membres.filter(
 
 console.log("Plus de 25 ans", membresDePlusDe25Ans);
 
-function trouverParPrenom(tableauMembres, prenomMembre){
-    return tableauMembres.find((membre) => membre.prenom === prenomMembre);
+function trouverParPrenom(tableauMembres, prenomMembre) {
+  return tableauMembres.find((membre) => membre.prenom === prenomMembre);
 }
 
-function calculerAgeMoyen(tableauMembres){
-    const initialValue = 0;
-    const somme = tableauMembres.reduce((somme, valeurActuelle) => somme + valeurActuelle.age, initialValue );
-    return somme / tableauMembres.length;
+function calculerAgeMoyen(tableauMembres) {
+  const initialValue = 0;
+  const somme = tableauMembres.reduce(
+    (somme, valeurActuelle) => somme + valeurActuelle.age,
+    initialValue,
+  );
+  return somme / tableauMembres.length;
 }
 
-// Cette version de compterParTechno marche, mais elle contient une boucle dans une boucle. Il y a donc 4 * 4 opérations, 
+// Cette version de compterParTechno marche, mais elle contient une boucle dans une boucle. Il y a donc 4 * 4 opérations,
 // les conséquences ne sont pas visibles. Mais si le tableau contenait 10000 elements, cela ferait 100.000.000
 // opérations. La complexité est donc O(n²) contre O(n²)
 
-function compterParTechno(membres){
-    const techs = {}
-    for (const membre of membres){
-      let i = 0;
-      let technoName = membre.techno
-      for (const membreTab of membres){
-        if(membreTab.techno === technoName){
-          i++
-        }
+function compterParTechno(membres) {
+  const techs = {};
+  for (const membre of membres) {
+    let i = 0;
+    let technoName = membre.techno;
+    for (const membreTab of membres) {
+      if (membreTab.techno === technoName) {
+        i++;
       }
-       techs[technoName] = i;
     }
+    techs[technoName] = i;
+  }
 
-    return techs;
+  return techs;
 }
 
-console.log("trouver par prénom Jordana", trouverParPrenom(membres, 'Jordana'))
-console.log("trouver par prénom Jordan", trouverParPrenom(membres, 'Jordan'))
-console.log("calculer Age moyen", calculerAgeMoyen(membres))
-console.log("compter par techno", compterParTechno(membres))
+console.log("trouver par prénom Jordana", trouverParPrenom(membres, "Jordana"));
+console.log("trouver par prénom Jordan", trouverParPrenom(membres, "Jordan"));
+console.log("calculer Age moyen", calculerAgeMoyen(membres));
+console.log("compter par techno", compterParTechno(membres));
