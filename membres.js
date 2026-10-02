@@ -15,6 +15,8 @@ function compterParTechno(membres){
 }
 
 function calculerAgeMoyen(tableauMembres){
+    // Si le tableau est vide, on retourne null
+    if(tableauMembres.length === 0) return null 
     let somme = 0;
     for (const membre of tableauMembres){
         somme = somme + membre.age
@@ -23,6 +25,8 @@ function calculerAgeMoyen(tableauMembres){
 }
 
 function trouverLePlusAge(tableauMembres){
+  // Si le tableau est vide, on retourne null
+  if(tableauMembres.length === 0) return null
   let membrePlusAge = tableauMembres[0];
   for (const membre of tableauMembres){
     if(membre.age > membrePlusAge.age){
@@ -48,3 +52,5 @@ console.log("trouver le plus agé", trouverLePlusAge(membres))
 console.log("calculer age moyen", calculerAgeMoyen(membres))
 console.log("grouper par techno", grouperParTechno(membres))
 console.log("compter par techno", compterParTechno(membres))
+console.log("trouver le plus agé avec un tableau vide", trouverLePlusAge([]))
+console.log("calculer age moyen avec un tableau vide", calculerAgeMoyen([]))
